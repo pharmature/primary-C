@@ -324,19 +324,138 @@
 
 
 
-
-//7.指向函数指针数组的指针
-
+//7.指向函数指针数组的指针 --- 一个 指针 指向一个 数组 ，数组的元素都是 函数指针。
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//int Sub(int x, int y)
+//{
+//	return x - y;
+//}
+//int main()
+//{
+//	int (*pf)(int, int) = Add; //函数指针
+//	int (*pfarr[4])(int, int) = { Add, Sub };  //函数指针数组
+//
+//	int (*(*ppfarr)[4])(int, int) = &pfarr; //ppfarr是一个指向函数指针数组的指针变量
+//	
+//	return 0;
+//}
 
 
 
 //8.回调函数
+//回调函数就是一个通过函数指针调用的函数。
+//如果把函数的指针(地址)作为参数传递给另一个函数，当这个指针被用来调用其所指向的函数时，就说这是回调函数
+//回调函数不是由该函数的实现方直接调用，而是在特定的事件或条件发生时由另外的一方调用的，用于对该事件或条件进行响应。
+
+//函数形参里的函数指针调用函数
+
+//qsort()库函数的使用 - 快速排序
+
+//void bubble_sort(int arr[], int sz) // 冒泡排序 - 只能排序固定类型的数据
+//{
+//	int i = 0;
+//	for (i = 0; i < sz - 1; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < sz - i - 1; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	bubble_sort(arr, sz);
+//	
+//	return 0;
+//}
+
+//qsort的好处 - 现成的库函数；可以排序任意类型的数据
+//比较2个整数的大小， > < ==
+//比较2个字符串，strcmp
+//比较2个结构体数据，指定比较的标准 --- 拿什么比较
+
+//void qsort(void* base, size_t num, size_t size, int(*cmp)(const void*, const void*))
+
+// base - 指向了待排序数组的第一个元素
+// num - 待排序的元素个数
+// size - 每个元素的大小，单位是字节
+// cmp - 指向一个函数，这个函数可以比较2个元素的大小(回调函数)
+
+// qsort函数的使用者提供这个函数
+//#include <stdlib.h>
+//
+//int cmp_int(const void* p1, const void* p2)
+//{
+//	return *(int*)p1 - *(int*)p2; // 先强制类型转换
+//}
+//// void* - 无具体类型的指针，所以它可以接收任何类型的地址
+//// void* 指针不能解引用
+//void test1()
+//{
+//	int arr[] = { 9,8,7,6,5,4,3,2,1,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	// 使用qsort来排序整型数组，要提供一个比较函数，这个比较函数能够比较2个整数的大小
+//	// qsort 默认是升序排列
+//	qsort(arr, sz, sizeof(arr[0]), cmp_int);
+//	int i = 0;
+//	for (i = 0; i < 10; i++)
+//	{
+//		printf("%d", arr[i]);
+//	}
+//}
+//
+////测试qsort排序结构体数据
+//struct Stu
+//{
+//	char name[20];
+//	int age;
+//};
+//
+//int cmp_stu_by_age(const void* p1, const void* p2)
+//{
+//	return ((struct Stu*)p1)->age - ((struct Stu*)p2)->age;
+//}
+//
+//int cmp_stu_by_name(const void* p1, const void* p2)
+//{
+//	return strcmp(((struct Stu*)p1)->name, ((struct Stu*)p2)->name);
+//}
+//void test2()
+//{
+//	struct Stu s[] = { {"zhangsan", 20}, {"lisi", 25}, {"wangwu", 50} };
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	//按照年龄来排序
+//	//qsort(s, sz, sizeof(s[0]), cmp_stu_by_age);
+//	//按照名字来排序
+//	qsort(s, sz, sizeof(s[0]), cmp_stu_by_name);
+//}
+//
+//int main()
+//{
+//	test1();
+//	test2();
+//
+//	return 0;
+//}
+
+// flag=1 假设已经有序，发现两个需要交换 flag=0
 
 
 
 //9.指针和数组面试题解析
 
-
+//9.1 
 
 
 
