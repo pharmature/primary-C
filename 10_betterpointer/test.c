@@ -453,10 +453,126 @@
 
 
 
-//9.指针和数组面试题解析
+//9.指针和数组面试题
 
-//9.1 
+// 一维数组
+//int main()
+//{
+//	int a[] = { 1, 2, 3, 4 };
+//	printf("%d\n", sizeof(a)); //16
+//	//sizeof(a)就是数组名单独放在sizeof内部，计算数组的总大小，单位是字节
+//
+//	printf("%d\n", sizeof(a + 0)); //4/8
+//	//a+0 没有单独放在sizeof里，就是数组首元素的地址
+//	
+//	printf("%d\n", sizeof(*a)); //4 字节
+//	//a是数组首元素的地址
+//	//*a -> &a[0] -> a[0] 整型的大小
+//
+//	printf("%d\n", sizeof(a + 1)); //4/8
+//	//a是数组首元素的地址
+//	//a+1 跳过一个整型，是第二个元素的地址
+//
+//	printf("%d\n", sizeof(a[1])); //4
+//	//整型的大小
+//
+//	printf("%d\n", sizeof(&a)); //4/8
+//	//&a - 取出的是数组的地址，但是数组的地址也是地址。地址的大小是4/8
+//
+//	printf("%d\n", sizeof(*&a)); //16
+//
+//	printf("%d\n", sizeof(&a+1)); //4/8
+//	//跳过一个数组的地址，还是地址，注意指针指向的位置
+//
+//	printf("%d\n", sizeof(&a[0])); // 4/8
+//	//取出首元素的地址
+//
+//	printf("%d\n", sizeof(&a[0]+1)); // 4/8
+//	//第二个元素的地址
+//
+//	return 0;
+//}
 
+//sizeof()计算的是占用内存空间的大小，单位是字节，不关注内存中到底存放的是什么
+//sizeof不是函数，是操作符
+//strlen()是函数
+//strlen()是针对字符串的
 
+// 字符数组
+//int main()
+//{
+//	char arr[] = { 'a','b','c','d','e','f' };
+//
+//	printf("%d\n", sizeof(arr)); //6
+//	
+//	printf("%d\n", sizeof(arr+0)); //4/8
+//	//首元素的地址
+//	
+//	printf("%d\n", sizeof(*arr)); //1
+//	//首元素
+//
+//	printf("%d\n", sizeof(arr[1])); //1
+//	//第二个元素
+//
+//	printf("%d\n", sizeof(&arr)); //4/8
+//
+//	printf("%d\n", sizeof(&arr + 1)); // 4/8
+//	
+//	printf("%d\n", sizeof(&arr[0] + 1)); // 4/8
+//
+//
+//	printf("%d\n", strlen(arr)); //随机值
+//
+//	printf("%d\n", strlen(arr + 0)); //随机值
+//	
+//	printf("%d\n", strlen(*arr)); //非法访问
+//	//a的ASCII码 97
+//	
+//	printf("%d\n", strlen(arr[1])); //非法访问
+//	//b的ASII码 98
+//	
+//	printf("%d\n", strlen(&arr)); //随机值 A
+//	
+//	printf("%d\n", strlen(&arr + 1)); //随机值 A-6
+//	 
+//	printf("%d\n", strlen(&arr[0] + 1)); //随机值 A-1
+//
+//	return 0;
+//}
 
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	printf("%d\n", sizeof(arr)); //7
+//	printf("%d\n", sizeof(arr + 0)); //7
+//	printf("%d\n", sizeof(*arr)); //1
+//	//首元素的大小
+//	printf("%d\n", sizeof(arr[1])); // 1
+//	printf("%d\n", sizeof(&arr)); //4/8
+//	printf("%d\n", sizeof(&arr + 1));  //4/8
+//	printf("%d\n", sizeof(&arr[0] + 1)); //4/8
+//
+//	printf("%d\n", strlen(arr)); //6
+//	printf("%d\n", strlen(arr + 0)); //6
+//	printf("%d\n", strlen(*arr)); //非法访问
+//	//首元素a的ASII码 97
+//	printf("%d\n", strlen(arr[1])); //非法访问
+//	printf("%d\n", strlen(&arr)); //6
+//	printf("%d\n", strlen(&arr + 1)); //随机值
+//	printf("%d\n", strlen(&arr[0] + 1)); //5
+//	return 0;
+//}
 
+//int main()
+//{
+//	char* p = "abcdef";
+//
+//	printf("%d\n", sizeof(p)); // 4/8
+//	printf("%d\n", sizeof(p + 1));  // 4/8
+//	printf("%d\n", sizeof(*p));  // 1
+//	printf("%d\n", sizeof(p[0])); // 1
+//	printf("%d\n", sizeof(&p)); // 4/8
+//	printf("%d\n", sizeof(&p + 1)); // 4/8
+//	printf("%d\n", sizeof(&p[0] + 1)); // 4/8
+//	return 0;
+//}
