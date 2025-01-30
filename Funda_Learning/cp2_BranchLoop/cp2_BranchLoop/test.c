@@ -465,69 +465,127 @@
 //}
 
 // 猜数字游戏
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <time.h>
+//void menu()
+//{
+//	printf("********************\n");
+//	printf("*****  1.play  *****\n");
+//	printf("*****  0.exit  *****\n");
+//	printf("********************\n");
+//}
+//
+//void game()
+//{
+//	// 1.生成随机数
+//	int ret = rand() % 100 + 1;
+//	// rand()包含在stdlib.h中，生成一个0~32767范围的随机数
+//	// 2.猜数字
+//	printf("请猜数字:>");
+//	int guess = 0;
+//	while (1)
+//	{
+//		scanf("%d", &guess);
+//		if (guess < ret)
+//		{
+//			printf("猜小了\n");
+//		}
+//		else if (guess > ret)
+//		{
+//			printf("猜大了\n");
+//		}
+//		else
+//		{
+//			printf("恭喜你，猜对了\n");
+//			break;
+//		}
+//	}
+//}
+//int main()
+//{
+//	int input = 0;
+//
+//	// 设置随机种子
+//	srand((unsigned int)time(NULL));
+//	// time()包含在time.h中，参数是一个指针，返回时间戳
+//	// srand()包含在stdlib.h中，要在rand()之前使用，设置随机数生成种子，参数是unsigned int
+//
+//	do
+//	{
+//		menu();
+//		printf("请选择:>");
+//		scanf("%d", &input);
+//		switch (input)
+//		{
+//		case 1:
+//			game();
+//			break;
+//		case 0:
+//			printf("退出游戏！\n");
+//			break;
+//		default:
+//			printf("选择错误！\n");
+//			break;
+//		}
+//	} while (input);
+//	return 0;
+//}
+
+// goto语句
+// 直接跳转到标记的标号
+
+// 一个关机程序
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//int main()
+//{
+//	char arr1[20] = { 0 };
+//	system("shutdown -s -t 60");
+//again:
+//	printf("电脑将在一分钟内关机，输入“我是猪”取消关机\n");
+//	scanf("%s", arr1);
+//	if (strcmp(arr1, "我是猪") == 0)
+//	{
+//		system("shutdown -a");
+//		printf("取消关机");
+//	}
+//	else
+//	{
+//		printf("输入错误，请重新输入\n");
+//		goto again;
+//	}
+//	return 0;
+//}
+
+// goto语句不常用
+// 主要的使用场景：挑出二层以上的深层次循环
+
+// 用循环代替goto语句
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-void menu()
-{
-	printf("********************\n");
-	printf("*****  1.play  *****\n");
-	printf("*****  0.exit  *****\n");
-	printf("********************\n");
-}
+#include <string.h>
 
-void game()
+int main()
 {
-	// 1.生成随机数
-	int ret = rand() % 100 + 1;
-	// rand()包含在stdlib.h中，生成一个0~32767范围的随机数
-	// 2.猜数字
-	printf("请猜数字:>");
-	int guess = 0;
+	char arr1[20] = { 0 };
+	system("shutdown -s -t 60");
 	while (1)
 	{
-		scanf("%d", &guess);
-		if (guess < ret)
+		printf("电脑将在一分钟内关机，输入“我是猪”取消关机\n");
+		scanf("%s", arr1);
+		if (strcmp(arr1, "我是猪") == 0)
 		{
-			printf("猜小了\n");
-		}
-		else if (guess > ret)
-		{
-			printf("猜大了\n");
+			system("shutdown -a");
+			printf("取消关机");
+			break;
 		}
 		else
 		{
-			printf("恭喜你，猜对了\n");
-			break;
+			printf("输入错误");
 		}
 	}
-}
-int main()
-{
-	int input = 0;
-
-	// 设置随机种子
-	srand((unsigned int)time(NULL));
-	// time()包含在time.h中，参数是一个指针，返回时间戳
-	// srand()包含在stdlib.h中，要在rand()之前使用，设置随机数生成种子，参数是unsigned int
-
-	do
-	{
-		menu();
-		printf("请选择:>");
-		scanf("%d", &input);
-		switch (input)
-		{
-		case 1:
-			game();
-			break;
-		case 0:
-			printf("退出游戏！\n");
-			break;
-		default:
-			printf("选择错误！\n");
-			break;
-		}
-	} while (input);
+	
 	return 0;
 }
