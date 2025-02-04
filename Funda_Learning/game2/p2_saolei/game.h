@@ -9,7 +9,7 @@
 #define COL 9
 #define ROWS ROW+2
 #define COLS COL+2
-#define MINE_COUNT 40
+#define MINE_COUNT 10
 
 // 初始化数组
 void init_board(char board[ROWS][COLS], int rows, int cols, char set);

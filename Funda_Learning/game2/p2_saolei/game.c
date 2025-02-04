@@ -86,20 +86,28 @@ void explosion_board(char mine[ROWS][COLS],char show[ROWS][COLS], int row, int c
 	int num = get_mine_number(mine, x, y);
 	if (num == 0)
 	{
-		(*pw)++;
-		show[x][y] = ' ';
-		int i = 0;
-		int j = 0;
-		for (i = x - 1; i <= i + 1; i++)
+		if (x >= 1 && x <= 9 && y >= 1 && y <= 9)
 		{
-			for (j = y - 1; j <= y + 1; j++)
+			(*pw)++;
+			show[x][y] = ' ';
+			int i = 0;
+			int j = 0;
+			for (i = x - 1; i <= i + 1; i++)
 			{
-				if (show[i][j] == '*')
+				for (j = y - 1; j <= y + 1; j++)
 				{
-					explosion_board(mine, show, row, col, i, j, pw);
+					if (i != x || j != y)
+					{
+						if (show[i][j] == '*')
+						{
+							explosion_board(mine, show, row, col, i, j, pw);
+						}
+					}
+					
 				}
 			}
 		}
+		
 	}
 	else
 	{
