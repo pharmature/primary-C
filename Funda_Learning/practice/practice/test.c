@@ -238,35 +238,310 @@
 // 实现一个函数is_prime，判断一个数是不是素数。
 // 利用上面实现的is_prime函数，打印100到200之间的素数。
 
-#include <math.h>
+//#include <math.h>
 
-void is_prime(int i)
-{
-	int flag = 1;
-	int j = 0;
-	for (j = 2; j <= sqrt(i); j++)
-	{
-		if (i % j == 0)
-			flag = 0;
-	}
-	if (flag == 1)
-	{
-		printf("%d ", i);
-	}
-}
-int main()
+//void is_prime(int i)
+//{
+//	int flag = 1;
+//	int j = 0;
+//	for (j = 2; j <= sqrt(i); j++)
+//	{
+//		if (i % j == 0)
+//			flag = 0;
+//	}
+//	if (flag == 1)
+//	{
+//		printf("%d ", i);
+//	}
+//}
+//int main()
+//{
+//	int i = 0;
+//	for (i = 100; i <= 200; i++)
+//	{
+//		is_prime(i);
+//	}
+//	return 0;
+//}
+
+
+// 编写一个函数实现n的k次方，使用递归实现。
+
+//double Pow(int n, int k)
+//{
+//	if (k > 0)
+//		return n * Pow(n, k - 1);
+//	else if (k == 0)
+//		return 1.0;
+//	else
+//		return 1.0 / Pow(n, -k);
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	int k = 0;
+//	scanf("%d %d", &n, &k);
+//	printf("%lf\n", Pow(n, k));
+//	return 0;
+//}
+
+
+// 写一个递归函数DigitSum(n)，输入一个非负整数，返回组成它的数字之和
+// 例如，调用DigitSum(1729)，则应该返回1 + 7 + 2 + 9，它的和是19
+// 输入：1729，输出：19
+
+//int DigitSum(int n)
+//{
+//	if (n > 9)
+//		return DigitSum(n / 10) + n % 10;
+//	else
+//		return n;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int sum = DigitSum(n);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+
+// 递归和非递归分别实现strlen
+
+// 非递归
+//int my_strlen(char* str)
+//{
+//	int len = 0;
+//	while (*str !='\0')
+//	{
+//		len++;
+//		str++;
+//	}
+//	return len;
+//}
+
+// 递归实现
+//int my_strlen(char* str)
+//{
+//	if (*str != '\0')
+//		return 1 + my_strlen(str + 1);
+//	else
+//		return 0;
+//}
+//int main()
+//{
+//	char arr[] = "hello world";
+//	int len = my_strlen(arr);
+//	printf("%d\n", len);
+//	return 0;
+//}
+
+
+
+// 递归方式实现打印一个整数的每一位
+
+//void Print(int n)
+//{
+//	if (n > 9)
+//		Print(n / 10);
+//	printf("%d ", n % 10);
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	Print(n);
+//	return 0;
+//}
+
+
+// 递归和非递归分别实现求第n个斐波那契数
+
+// 非递归实现
+//int Fib(int n)
+//{
+//	int a = 1;
+//	int b = 1;
+//	int c = 0;
+//	while (n > 2)
+//	{
+//		c = a + b;
+//		a = b;
+//		b = c;
+//		n--;
+//	}
+//	return c;
+//	
+//}
+
+// 递归实现
+//int Fib(int n)
+//{
+//	if (n > 2)
+//		return Fib(n - 1) + Fib(n - 2);
+//	else
+//		return 1;
+//}
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int fib = Fib(n);
+//	printf("%d\n", fib);
+//	return 0;
+//}
+
+
+// 编写一个函数 reverse_string(char * string)（递归实现）
+// 实现：将参数字符串中的字符反向排列，不是逆序打印。
+// 要求：不能使用C函数库中的字符串操作函数。
+
+//int my_strlen(char* str)
+//{
+//	if (*str != '\0')
+//		return 1 + my_strlen(str + 1);
+//	return 0;
+//}
+//
+//void reverse_string(char* string)
+//{
+//	char tmp = *string;
+//	int sz = my_strlen(string);
+//	*string = *(string + sz - 1);
+//	*(string + sz - 1) = '\0';
+//	if (sz > 2)
+//		reverse_string(string + 1);
+//	*(string + sz - 1) = tmp;
+//
+//}
+//int main()
+//{
+//	char str[] = "abcdefg";
+//	printf("反转前:>%s\n", str);
+//	reverse_string(str);
+//	printf("反转后:>%s\n", str);
+//
+//	return 0;
+//}
+
+
+// 递归和非递归分别实现求n的阶乘（不考虑溢出的问题）
+
+//// 非递归实现
+//int Fab(int n)
+//{
+//	int m = 1;
+//	int i = 0;
+//	for (i = 1; i <= n; i++)
+//	{
+//		m *= i;
+//	}
+//	return m;
+//}
+
+// 递归实现
+//int Fab(int n)
+//{
+//	if (n > 1)
+//		return n * Fab(n - 1);
+//	else
+//		return 1;
+//}
+//
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int sum = Fab(n);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+
+
+
+// 将数组A中的内容和数组B中的内容进行交换。（数组一样大）
+//int main()
+//{
+//	int arr1[5] = {1,2,3,4,5};
+//	int arr2[5] = {6,7,8,9,0};
+//
+//	int i = 0;
+//	for (i = 0; i < 5; i++)
+//	{
+//		int tmp = arr1[i];
+//		arr1[i] = arr2[i];
+//		arr2[i] = tmp;
+//	}
+//
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d ", arr1[i]);
+//	}
+//	printf("\n");
+//	for (i = 0; i < 5; i++)
+//	{
+//		printf("%d ", arr2[i]);
+//	}
+//	return 0;
+//}
+
+
+// 创建一个整形数组，完成对数组的操作
+// 实现函数init() 初始化数组为全0
+// 实现print()  打印数组的每个元素
+// 实现reverse()  函数完成数组元素的逆置。
+
+void print(int* arr, int sz)
 {
 	int i = 0;
-	for (i = 100; i <= 200; i++)
+	for (i = 0; i < sz; i++)
 	{
-		is_prime(i);
+		printf("%d ", arr[i]);
 	}
-	return 0;
+	printf("\n");
 }
 
+void init(int* arr, int sz)
+{
+	int i = 0;
+	for (i = 0; i < sz; i++)
+	{
+		arr[i] = 0;
+	}
+}
 
+void reverse(int* arr, int sz)
+{
+	int left = 0;
+	int right = sz - 1;
+	int tmp = 0;
 
+	while (left < right)
+	{
+		tmp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = tmp;
+		left++;
+		right--;
+	}
+}
 
+int main()
+{
+	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	print(arr, sz);
+	
+	reverse(arr, sz);
+	print(arr, sz);
+	
+	init(arr, sz);
+	print(arr, sz);
+	return 0;
+}
 
 
 
