@@ -494,54 +494,173 @@
 // 实现print()  打印数组的每个元素
 // 实现reverse()  函数完成数组元素的逆置。
 
-void print(int* arr, int sz)
-{
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		printf("%d ", arr[i]);
-	}
-	printf("\n");
-}
+//void print(int* arr, int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//}
+//
+//void init(int* arr, int sz)
+//{
+//	int i = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		arr[i] = 0;
+//	}
+//}
+//
+//void reverse(int* arr, int sz)
+//{
+//	int left = 0;
+//	int right = sz - 1;
+//	int tmp = 0;
+//
+//	while (left < right)
+//	{
+//		tmp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	print(arr, sz);
+//	
+//	reverse(arr, sz);
+//	print(arr, sz);
+//	
+//	init(arr, sz);
+//	print(arr, sz);
+//	return 0;
+//}
 
-void init(int* arr, int sz)
-{
-	int i = 0;
-	for (i = 0; i < sz; i++)
-	{
-		arr[i] = 0;
-	}
-}
 
-void reverse(int* arr, int sz)
-{
-	int left = 0;
-	int right = sz - 1;
-	int tmp = 0;
+// 实现一个对整形数组的冒泡排序
 
-	while (left < right)
-	{
-		tmp = arr[left];
-		arr[left] = arr[right];
-		arr[right] = tmp;
-		left++;
-		right--;
-	}
-}
+//void bubble_sort(int* arr,int sz)
+//{
+//	int tmp = 0;
+//	for (int i = 0; i < sz - 1; i++)
+//	{
+//		for (int j = 0; j < sz - i - 1; j++)
+//		{
+//			if (arr[j] > arr[j + 1])
+//			{
+//				tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//
+//int main()
+//{
+//	int arr[10] = { 10,3,2,6,8,1,4,7,9,5 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	printf("排序前:> ");
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//	
+//	bubble_sort(arr,sz);
+//
+//	printf("排序后:> ");
+//	for (int i = 0; i < 10; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	printf("\n");
+//	return 0;
+//}
 
-int main()
-{
-	int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	print(arr, sz);
-	
-	reverse(arr, sz);
-	print(arr, sz);
-	
-	init(arr, sz);
-	print(arr, sz);
-	return 0;
-}
+
+// 不允许创建临时变量，交换两个整数的内容
+
+//int main()
+//{
+//	int a = 3;
+//	int b = 5;
+//	printf("交换前:> %d %d\n", a, b);
+//
+//	a = a ^ b;
+//	b = a ^ b;
+//	a = a ^ b;
+//
+//	printf("交换后:> %d %d\n", a, b);
+//	return 0;
+//}
+
+
+// strlen的模拟实现
+
+//#include <assert.h>
+//int my_strlen(const char* arr)
+//{
+//	assert(arr);
+//	int count = 0;
+//	while (*arr)
+//	{
+//		count++ ;
+//		arr++;
+//	}
+//	return count;
+//}
+//int main()
+//{
+//	char arr[] = "hello world";
+//	int len = my_strlen(arr);
+//	printf("%d\n", len);
+//	return 0;
+//}
+
+
+
+// strcpy的模拟实现
+
+//#include <assert.h>
+//char* my_strcpy(char* dest, const char* src)
+//{
+//	assert(dest && src);
+//	char* ret = dest;
+//	while (*dest++ = *src++)
+//	{
+//		;
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	char arr1[] = "hello world";
+//	char arr2[20] = { 0 }; // 预留足够的空间
+//
+//	printf("%s\n", my_strcpy(arr2, arr1));
+//	return 0;
+//}
+
+
+// 求两个整数的最小公倍数
+
+
+// 将一句话进行倒置，标点不倒置
+
+
+
+
+
+
+
 
 
 
