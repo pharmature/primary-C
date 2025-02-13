@@ -517,25 +517,25 @@
 
 // qosrt排序整型数组
 //#include <stdlib.h>
-//void print_arr(int* arr,int sz)
-//{
-//	for (int i = 0; i < sz; i++)
-//	{
-//		printf("%d ", arr[i]);
-//	}
-//}
-//
-//int arr_cmp(const void* p1, const void* p2)
-//{
-//	return *(int*)p1 - *(int*)p2;
-//}
-//
+void print_arr(int* arr,int sz)
+{
+	for (int i = 0; i < sz; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+}
+
+int int_cmp(const void* p1, const void* p2)
+{
+	return *(int*)p1 - *(int*)p2;
+}
+
 //int main()
 //{
 //	int arr[] = { 3,5,7,0,2,6,8,9,4,1 };
 //	int sz = sizeof(arr) / sizeof(arr[0]);
 //
-//	qsort(arr, sz,sizeof(arr[0]),arr_cmp);
+//	qsort(arr, sz,sizeof(arr[0]),int_cmp);
 //
 //	print_arr(arr,sz);
 //	return 0;
@@ -544,6 +544,7 @@
 
 // qsort 排序结构体
 #include <stdlib.h>
+#include <string.h>
 
 struct Stu
 {
@@ -551,24 +552,86 @@ struct Stu
 	int age;
 };
 
+// 按照年龄排序
 int cmp_by_age(const void* p1, const void* p2)
 {
 	return (((struct Stu*)p1)->age) - (((struct Stu*)p2)->age);
 }
 
+// 按照姓名排序
+int cmp_by_name(const void* p1, const void* p2)
+{
+	return strcmp(((struct Stu*)p1)->name, ((struct Stu*)p2)->name);
+}
+
+//int main()
+//{
+//	struct Stu s[] = { {"zhangsan",18},{"lisi",16},{"wangwu",17} };
+//	int sz = sizeof(s) / sizeof(s[0]);
+//	// 按照年龄比较
+//	//qsort(s, sz, sizeof(s[0]), cmp_by_age);
+//    qsort(s, sz, sizeof(s[0]), cmp_by_name);
+//
+//	return 0;
+//}
+
+
+// 按照冒泡排序的思想，实现qsort形式的bubble_sort()
+
+void swap(char* p1, char* p2,size_t width)
+{
+	for (int i = 0; i < width; i++)
+	{
+		char tmp = *p1;
+		*p1 = *p2;
+		*p2 = tmp;
+		p1++;
+		p2++;
+	}
+}
+
+void bubble_sort(void* base, size_t num, size_t width, int (*cmp)(const void* p1, const void* p2))
+{
+	for (int i = 0; i < num - 1; i++)
+	{
+		int flag = 1; // 假设排序已经完成
+		for (int j = 0; j < num - i - 1; j++)
+		{
+			if (cmp((char*)base + j * width, (char*)base + (j + 1) * width) > 0)
+			{
+				flag = 0;
+				swap((char*)base + j * width, (char*)base + (j + 1) * width, width);
+			}
+		}
+		if (flag == 1)
+			break;
+	}
+}
+
+//int main()
+//{
+//	int arr[10] = { 3,6,4,5,8,1,2,9,0,7 };
+//	size_t sz = sizeof(arr) / sizeof(arr[0]);
+//
+//	bubble_sort(arr, sz, sizeof(arr[0]), int_cmp);
+//
+//	print_arr(arr,sz);
+//	return 0;
+//}
+
+
 int main()
 {
 	struct Stu s[] = { {"zhangsan",18},{"lisi",16},{"wangwu",17} };
-	int sz = sizeof(s) / sizeof(s[0]);
+	size_t sz = sizeof(s) / sizeof(s[0]);
+	
 	// 按照年龄比较
-	qsort(s, sz, sizeof(s[0]), cmp_by_age);
+	//bubble_sort(s, sz, sizeof(s[0]), cmp_by_age);
 
+	// 按照姓名排序
+	bubble_sort(s, sz, sizeof(s[0]), cmp_by_name);
 	return 0;
 }
-
-
-
-
 
 
 
