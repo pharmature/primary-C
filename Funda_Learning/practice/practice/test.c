@@ -652,8 +652,52 @@
 
 // 求两个整数的最小公倍数
 
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d %d", &a, &b);
+//	
+//	int m = 1;
+//	for (int i = 1; i <= b; i++)
+//	{
+//		m = a * i;
+//		if (m % b == 0)
+//		{
+//			break;
+//		}
+//	}
+//	printf("%d\n", m);
+//	return 0;
+//}
+
 
 // 将一句话进行倒置，标点不倒置
+
+int main()
+{
+	char
+	return 0;
+}
+
+
+//获取一个整数二进制序列中所有的偶数位和奇数位，分别打印出二进制序列
+
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	for (int i = 31; i >=1; i -= 2)
+//	{
+//		printf("%d ", (n >> i) & 1);
+//	}
+//	printf("\n");
+//	for (int i = 30; i >= 0; i -= 2)
+//	{
+//		printf("%d ", (n >> i) & 1);
+//	}
+//	return 0;
+//}
 
 
 
