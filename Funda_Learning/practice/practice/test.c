@@ -674,11 +674,11 @@
 
 // 将一句话进行倒置，标点不倒置
 
-int main()
-{
-	char
-	return 0;
-}
+//int main()
+//{
+//	char
+//	return 0;
+//}
 
 
 //获取一个整数二进制序列中所有的偶数位和奇数位，分别打印出二进制序列
@@ -699,6 +699,199 @@ int main()
 //	return 0;
 //}
 
+
+
+// 写一个函数打印arr数组的内容，不使用数组下标，使用指针。
+
+//void Print(int* arr, int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", *(arr + i));
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,0 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	Print(arr, sz);
+//	return 0;
+//}
+
+
+// 用C语言在屏幕上打印菱形
+
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	// 上半部分
+//	int i = 0;
+//	for (i = 1; i <= n; i++)
+//	{
+//		// 空格
+//		int j = 0;
+//		for (j = 0; j < n - i; j++)
+//		{
+//			printf(" ");
+//		}
+//		// ‘*’
+//		for (j = 0; j < 2 * i - 1; j++)
+//		{
+//			printf("*");
+//		}
+//		// 换行
+//		printf("\n");
+//	}
+//	// 下半部分
+//	for (i = n - 1; i >= 1; i--)
+//	{
+//		int j = 0;
+//		for (j = 0; j < n - i; j++)
+//		{
+//			printf(" ");
+//		}
+//		for (j = 0; j < 2 * i - 1; j++)
+//		{
+//			printf("*");
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+
+// 求出0～100000之间的所有“水仙花数”并输出。
+// 水仙花数”是指一个n位数，其各位数字的n次方之和确好等于该数本身，如:153＝1^3＋5^3＋3^3，则153是一个“水仙花数”。
+
+//#include <math.h>
+//int main()
+//{
+//	int i = 0;
+//	for (i = 0; i <= 100000; i++)
+//	{
+//		// 先求是几位数
+//		int n = 1;
+//		int tmp = i;
+//		while (tmp /= 10)
+//		{
+//			n++;
+//		}
+//
+//		int sum = 0;
+//		int m = 0;
+//		tmp = i;
+//		while (tmp)
+//		{
+//			m = tmp % 10;
+//			sum += pow(m, n);
+//			tmp /= 10;
+//		}
+//		if (i == sum)
+//		{
+//			printf("%d ", i);
+//		}
+//	}
+//	return 0;
+//}
+
+
+// 求Sn=a+aa+aaa+aaaa+aaaaa的前5项之和，其中a是一个数字，
+// 例如：2 + 22 + 222 + 2222 + 22222
+
+//#include <math.h>
+//int main()
+//{
+//	int a = 0;
+//	int n = 0;
+//	scanf("%d %d", &a, &n);
+//
+//	int sn = 0;
+//	int cur = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		cur += a * pow(10, i);
+//		sn += cur;
+//	}
+//	printf("%d\n", sn);
+//	printf("%d\n", 2 + 22 + 222 + 2222 + 22222);
+//	return 0;
+//}
+
+
+// 喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以喝多少汽水（编程实现）。
+
+//int main()
+//{
+//	int money = 20;
+//	int count = money;
+//	int tmp = money;
+//
+//	while (tmp / 2)
+//	{
+//		count += tmp / 2;
+//		tmp = tmp / 2 + tmp % 2;
+//	}
+//	printf("%d\n", count);
+//	return 0;
+//}
+
+
+// 调整数组使奇数全部都位于偶数前面。
+// 题目：输入一个整数数组，实现一个函数，来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
+// 所有偶数位于数组的后半部分。
+
+//void Fun(int* arr, int sz)
+//{
+//	for (int i = 0; i < sz; i++)
+//	{
+//		if (arr[i] % 2 == 0)
+//		{
+//			for (int j = i; j < sz-1; j++)
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j + 1];
+//				arr[j + 1] = tmp;
+//			}
+//		}
+//		else
+//		{
+//			for (int j = i; j > 0; j--)
+//			{
+//				int tmp = arr[j];
+//				arr[j] = arr[j - 1];
+//				arr[j - 1] = tmp;
+//			}
+//		}
+//	}
+//}
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	Fun(arr, sz);
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	return 0;
+//}
+
+
+// VS开发环境调试下面的代码，画图解释下面代码的问题
+
+#include <stdio.h>
+int main()
+{
+    int i = 0;
+    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+    for (i = 0; i <= 12; i++)
+    {
+        arr[i] = 0;
+        printf("hello bit\n");
+    }
+    return 0;
+}
 
 
 
