@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
 #include <stdio.h>
+#include <string.h>
 
 // 在屏幕上输出9*9乘法口诀表
 
@@ -895,12 +896,51 @@
 
 
 
-// 
+// 模拟实现库函数strcpy
+
+//#include <assert.h>
+//char* my_strcpy(char* dest, const char* src)
+//{
+//	assert(dest && src);
+//	char* ret = dest;
+//	while (*dest = *src)
+//	{
+//		dest++;
+//		src++;
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	char arr1[] = "hello world！";
+//	char arr2[20] = { 0 };
+//
+//	printf("%s\n", my_strcpy(arr2, arr1));
+//	return 0;
+//}
 
 
+// 模拟实现库函数strlen
 
-
-
+//#include <assert.h>
+//int my_strlen(const char* str)
+//{
+//	assert(str);
+//	char* start = str;
+//	while (*str)
+//	{
+//		str++;
+//	}
+//	return str - start;
+//}
+//int main()
+//{
+//	char arr[] = "hello world!";
+//
+//	printf("%d\n", my_strlen(arr));
+//	return 0;
+//}
 
 
 
