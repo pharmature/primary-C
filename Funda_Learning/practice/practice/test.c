@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
 
 // 在屏幕上输出9*9乘法口诀表
 
@@ -1282,60 +1283,216 @@
 
 
 //模仿qsort的功能实现一个通用的冒泡排序
-typedef struct Stu
-{
-	char name[20];
-	int age;
-}stu;
+//typedef struct Stu
+//{
+//	char name[20];
+//	int age;
+//}stu;
+//
+//int stru_cmp(const void* p1, const void* p2)
+//{
+//	return strcmp(((stu*)p1)->name, ((stu*)p2)->name);
+//}
+//
+//void swap(char* ps1, char* ps2, size_t size)
+//{
+//	for (int i = 0; i < size; i++)
+//	{
+//		char tmp = *ps1;
+//		*ps1 = *ps2;
+//		*ps2 = tmp;
+//		ps1++;
+//		ps2++;
+//	}
+//}
+//
+//void bubble_qsort(void* base, size_t num, size_t size, int (*cmp)(const void* p1, const void* p2))
+//{
+//	for (int i = 0; i < num-1; i++)
+//	{
+//		int flag = 1; //假设排序已经完成
+//		for (int j = 0; j < num - i - 1; j++)
+//		{
+//			if (cmp((char*)base + j * size, (char*)base + (j + 1) * size) > 0)
+//			{
+//				flag = 0;
+//				swap((char*)base + j * size, (char*)base + (j + 1) * size, size);
+//			}
+//		}
+//		if (1 == flag)
+//			break;
+//	}
+//}
+//
+//int main()
+//{
+//	stu arr[] = { {"zhangsan",15},{"lisi",14}, {"wangwu",16} };
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	//按姓名排序
+//	bubble_qsort(arr, sz, sizeof(arr[0]), stru_cmp);
+//
+//	for (int i = 0; i < sz; i++)
+//	{
+//		printf("%s %d\n", (arr + i)->name, (arr + i)->age);
+//	}
+//	return 0;
+//}
 
-int stru_cmp(const void* p1, const void* p2)
-{
-	return strcmp(((stu*)p1)->name, ((stu*)p2)->name);
-}
 
-void swap(char* ps1, char* ps2, size_t size)
+//模拟实现strlen
+
+//计数器
+//int my_strlen(char* str)
+//{
+//	assert(str);
+//	int count = 0;
+//	while (*str != '\0')
+//	{
+//		str++;
+//		count++;
+//	}
+//	return count;
+//}
+
+//指针减法
+//int my_strlen(char* str)
+//{
+//	assert(str);
+//	char* start = str;
+//	while (*str != '\0')
+//	{
+//		str++;
+//	}
+//	return str - start;
+//}
+
+//递归 - 不创建临时变量
+//int my_strlen(char* str)
+//{
+//	if (*str == '\0')
+//		return 0;
+//	else
+//		return 1 + my_strlen(str + 1);
+//}
+//int main()
+//{
+//	char arr[] = "hello world!";
+//	printf("%d\n", my_strlen(arr));
+//	return 0;
+//}
+
+
+//模拟实现strcpy
+
+//char* my_strcpy(char* dest, const char* src)
+//{
+//	assert(dest && src);
+//	char* ret = dest;
+//	while (*dest = *src)
+//	{
+//		dest++;
+//		src++;
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	char str1[] = "hello world!";
+//	char str2[20] = { 0 };
+//
+//	printf("%s\n", my_strcpy(str2, str1));
+//	return 0;
+//}
+
+
+//模拟实现strcmp
+
+//int my_strcmp(const char* str1, const char* str2)
+//{
+//	assert(str1 && str2);
+//	while (*str1 == *str2)
+//	{
+//		if (*str1 == '\0')
+//			return 0;
+//		str1++;
+//		str2++;
+//	}
+//	return *str1 - *str2;
+//}
+//
+//int main()
+//{
+//	char str1[] = "abcde";
+//	char str2[] = "abcdd";
+//
+//	printf("%d\n", my_strcmp(str1, str2));
+//	return 0;
+//}
+
+
+
+//模拟实现strcat
+
+//char* my_strcat(char* str1, const char* str2)
+//{
+//	assert(str1 && str2);
+//	char* ret = str1;
+//	while (*str1 != '\0')
+//	{
+//		str1++;
+//	}
+//	while (*str1 = *str2)
+//	{
+//		str1++;
+//		str2++;
+//	}
+//	return ret;
+//}
+//int main()
+//{
+//	char str1[20] = "hello ";
+//	char str2[] = "world!";
+//
+//	printf("%s\n", my_strcat(str1, str2));
+//	return 0;
+//}
+
+
+//模拟实现strstr
+
+char* my_strstr(const char* str1, const char* str2)
 {
-	for (int i = 0; i < size; i++)
+	assert(str1 && str2);
+	char* s1 = NULL;
+	char* s2 = NULL;
+
+	while (*str1)
 	{
-		char tmp = *ps1;
-		*ps1 = *ps2;
-		*ps2 = tmp;
-		ps1++;
-		ps2++;
-	}
-}
-
-void bubble_qsort(void* base, size_t num, size_t size, int (*cmp)(const void* p1, const void* p2))
-{
-	for (int i = 0; i < num-1; i++)
-	{
-		int flag = 1; //假设排序已经完成
-		for (int j = 0; j < num - i - 1; j++)
+		s1 = (char*)str1;
+		s2 = (char*)str2;
+		while (*s1 && *s2 && *s1 == *s2)
 		{
-			if (cmp((char*)base + j * size, (char*)base + (j + 1) * size) > 0)
-			{
-				flag = 0;
-				swap((char*)base + j * size, (char*)base + (j + 1) * size, size);
-			}
+			s1++;
+			s2++;
 		}
-		if (1 == flag)
-			break;
+		if (*s2 == '\0')
+			return str1;
+		str1++;
 	}
+	return NULL;
 }
 
 int main()
 {
-	stu arr[] = { {"zhangsan",15},{"lisi",14}, {"wangwu",16} };
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	//按姓名排序
-	bubble_qsort(arr, sz, sizeof(arr[0]), stru_cmp);
+	char str1[] = "abbbcdef";
+	char str2[] = "bcdf";
 
-	for (int i = 0; i < sz; i++)
-	{
-		printf("%s %d\n", (arr + i)->name, (arr + i)->age);
-	}
+	char* p = my_strstr(str1, str2);
+	printf("%s\n", p);
 	return 0;
 }
+
+
 
 
 
