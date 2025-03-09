@@ -200,7 +200,7 @@
 //	char* s1 = NULL;
 //	char* s2 = NULL;
 //
-//	while (str1)
+//	while (*str1)
 //	{
 //		s1 = (char*)str1;
 //		s2 = (char*)str2;
