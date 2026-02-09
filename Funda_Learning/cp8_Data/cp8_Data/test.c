@@ -12,7 +12,6 @@
 // short int long 默认是 signed
 // char 默认值取决于编译器，大多数是signed
 
-
 // 1.2 浮点型 - float double
 
 // 1.3 构造类型

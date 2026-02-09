@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="cp10_MoreFunction/cp10_MoreFunction.vcxproj" Id="0a0b11e5-5c9c-4303-b648-da7002b99dd4" />
+</Solution>

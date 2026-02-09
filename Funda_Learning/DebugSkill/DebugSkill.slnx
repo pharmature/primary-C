@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="DebugSkill/DebugSkill.vcxproj" Id="21df30e8-0bc8-433e-a9fd-136e039514ca" />
+</Solution>
